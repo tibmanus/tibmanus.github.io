@@ -1,2 +1,2 @@
 # tibmanus.github.io
-My personal Github hosted websited
+My personal Github hosted website
