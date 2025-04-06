@@ -131,9 +131,11 @@ h1 {
     width: 30px;
     height: 30px;
     pointer-events: none;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L80 70 H20 Z" fill="%23964B00"/><path d="M15 70 H85 Q90 70 90 75 L85 80 H15 L10 75 Q10 70 15 70" fill="%23964B00"/></svg>');
-    background-size: contain;
-    background-repeat: no-repeat;
+    font-size: 24px; /* Size of the emoji */
+    content: "🤠";
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: hat-trail 1s linear forwards;
 }
 
@@ -151,12 +153,12 @@ h1 {
 /* Mobile responsiveness for hat gallery */
 @media (max-width: 768px) {
     .hat-gallery {
-        gap: 0.5rem;
+        gap: 1rem;
     }
     
     .hat-gif {
-        width: 48px;
-        height: 48px;
+        width: 144px;
+        height: 144px;
     }
 }
 
@@ -174,8 +176,8 @@ h1 {
 }
 
 .hat-gif {
-    width: 64px;
-    height: 64px;
+    width: 192px;
+    height: 192px;
     object-fit: contain;
     animation: bounce 2s infinite;
 }
@@ -197,4 +199,47 @@ h1 {
     0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(-5deg); }
     75% { transform: rotate(5deg); }
+}
+
+.dress-code a {
+    color: #00ff00; /* Bright green - very MySpace-era */
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #003300;
+    position: relative;
+    padding: 0 2px;
+}
+
+.dress-code a:hover {
+    color: #ff00ff; /* Hot pink on hover */
+    text-decoration: none;
+    animation: rainbow-link 1s infinite;
+}
+
+.dress-code a::before {
+    content: "★";
+    position: absolute;
+    left: -15px;
+    animation: spin 2s linear infinite;
+}
+
+.dress-code a::after {
+    content: "★";
+    position: absolute;
+    right: -15px;
+    animation: spin 2s linear infinite reverse;
+}
+
+@keyframes rainbow-link {
+    0% { color: #ff0000; }
+    20% { color: #ffff00; }
+    40% { color: #00ff00; }
+    60% { color: #00ffff; }
+    80% { color: #ff00ff; }
+    100% { color: #ff0000; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 } 

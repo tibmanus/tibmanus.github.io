@@ -2,8 +2,9 @@
 document.addEventListener('mousemove', function(e) {
     const trail = document.createElement('div');
     trail.className = 'cursor-trail';
-    trail.style.left = (e.pageX - 15) + 'px'; // Center the hat
-    trail.style.top = (e.pageY - 15) + 'px';  // Center the hat
+    trail.textContent = '🤠';  // Add the cowboy hat emoji
+    trail.style.left = (e.pageX - 15) + 'px';
+    trail.style.top = (e.pageY - 15) + 'px';
     document.body.appendChild(trail);
 
     // Random rotation for each hat
