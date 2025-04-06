@@ -12,6 +12,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    touch-action: pan-y pinch-zoom;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    /* Prevent bounce/elastic scroll on iOS */
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -19,14 +30,15 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
 }
 
 .container {
     max-width: 800px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
     background: rgba(0, 0, 51, 0.3);
     backdrop-filter: blur(5px);
     border-radius: 15px;
@@ -258,10 +270,12 @@ h1, h2 {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    width: 100vw;
     height: 100%;
     pointer-events: none;
     z-index: -1;
+    overflow: hidden;
 }
 
 @keyframes sparkle {
@@ -398,4 +412,28 @@ h1, h2 {
     .container {
         background: rgba(0, 0, 51, 0.8);
     }
+}
+
+/* Ensure all content respects container boundaries */
+img, iframe, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Update any absolute positioned elements */
+.confetti, 
+.floating-balloon {
+    left: 0;
+    right: 0;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Ensure proper viewport sizing on iOS */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+@-ms-viewport {
+    width: device-width;
 } 
