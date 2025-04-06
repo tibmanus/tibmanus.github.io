@@ -108,4 +108,42 @@ document.addEventListener('mousemove', (e) => {
     setTimeout(() => {
         sparkle.remove();
     }, 1500);
+});
+
+// Update FAQ Accordion for better Safari support
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            const otherAnswer = item.querySelector('.faq-answer');
+            otherAnswer.style.display = 'none';
+            otherAnswer.style.opacity = '0';
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            faqItem.classList.add('active');
+            answer.style.display = 'block';
+            // Force browser reflow
+            answer.offsetHeight;
+            answer.style.opacity = '1';
+        }
+        
+        // Add sparkle effect on click
+        const rect = question.getBoundingClientRect();
+        createConfettiBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+});
+
+// Ensure smooth animation start
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-answer').forEach(answer => {
+        answer.style.display = 'none';
+        answer.style.opacity = '0';
+    });
 }); 

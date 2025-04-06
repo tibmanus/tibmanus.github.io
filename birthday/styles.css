@@ -300,4 +300,102 @@ h1, h2 {
 
 .sparkle:nth-child(3n+2) {
     background: radial-gradient(circle, #ffb6c1 0%, rgba(255,182,193,0) 100%);
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    margin-top: 3rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+    backdrop-filter: blur(5px);
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease; /* Safari support */
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 105, 180, 0.1);
+    cursor: pointer;
+    /* Use transform instead of max-height for better performance */
+    -webkit-transform: translateZ(0); /* Safari performance boost */
+    transform: translateZ(0);
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-family: var(--secondary-font);
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    -webkit-transition: -webkit-transform 0.3s ease; /* Safari support */
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    /* Replace max-height animation with height and display */
+    display: none;
+    height: auto;
+    padding: 0 1rem;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease; /* Safari support */
+    transition: opacity 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+    opacity: 1;
+    padding: 1rem;
+}
+
+.faq-item.active .faq-toggle {
+    -webkit-transform: rotate(45deg); /* Safari support */
+    transform: rotate(45deg);
+}
+
+.faq-item:hover {
+    -webkit-transform: translateY(-2px); /* Safari support */
+    transform: translateY(-2px);
+    -webkit-box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2); /* Safari support */
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+}
+
+/* Update container styles for Safari */
+.container {
+    background: rgba(0, 0, 51, 0.3);
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Fallback for backdrop-filter in older Safari versions */
+@supports not ((-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px))) {
+    .faq-section,
+    .container {
+        background: rgba(0, 0, 51, 0.8);
+    }
 } 
