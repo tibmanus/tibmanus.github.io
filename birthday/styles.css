@@ -1,0 +1,200 @@
+:root {
+    --primary-color: #ff69b4;
+    --secondary-color: #4a90e2;
+    --background-color: #000033;
+    --text-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: url('https://web.archive.org/web/20091027065832/http://es.geocities.com/web_mickey/stars.gif');
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: rainbow 5s linear infinite;
+}
+
+.header-gif {
+    max-width: 200px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px var(--primary-color);
+}
+
+.blink-text {
+    animation: blink 1s infinite;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.party-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detail-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    animation: float 3s ease-in-out infinite;
+}
+
+.detail-box h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.visitor-counter {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 20s linear infinite;
+}
+
+/* Animations */
+@keyframes rainbow {
+    0% { color: #ff0000; }
+    20% { color: #ffff00; }
+    40% { color: #00ff00; }
+    60% { color: #00ffff; }
+    80% { color: #ff00ff; }
+    100% { color: #ff0000; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .detail-box {
+        padding: 1rem;
+    }
+}
+
+/* Cursor trail effect */
+.cursor-trail {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L80 70 H20 Z" fill="%23964B00"/><path d="M15 70 H85 Q90 70 90 75 L85 80 H15 L10 75 Q10 70 15 70" fill="%23964B00"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: hat-trail 1s linear forwards;
+}
+
+@keyframes hat-trail {
+    0% { 
+        opacity: 1; 
+        transform: scale(1) rotate(0deg); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0.3) rotate(360deg); 
+    }
+}
+
+/* Mobile responsiveness for hat gallery */
+@media (max-width: 768px) {
+    .hat-gallery {
+        gap: 0.5rem;
+    }
+    
+    .hat-gif {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.dress-code {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: #ffd700 !important;
+}
+
+.hat-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.hat-gif {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    animation: bounce 2s infinite;
+}
+
+.hat-note {
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: bold;
+    margin-top: 1rem;
+    animation: shake 0.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+} 
