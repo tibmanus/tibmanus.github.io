@@ -205,8 +205,8 @@ h1 {
 }
 
 .avatar-frame {
-    width: min(100%, 16rem);
-    aspect-ratio: 1;
+    width: min(100%, 18rem);
+    aspect-ratio: 4 / 5;
     border: 4px solid var(--border);
     border-radius: 22px;
     background:
@@ -219,8 +219,8 @@ h1 {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
+    object-position: center top;
 }
 
 .status-line,
@@ -462,7 +462,7 @@ h1 {
     }
 
     .profile-card {
-        grid-template-columns: minmax(15rem, 18rem) 1fr;
+        grid-template-columns: minmax(17rem, 20rem) 1fr;
         align-items: start;
     }
 
