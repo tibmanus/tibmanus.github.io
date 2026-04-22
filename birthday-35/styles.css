@@ -352,22 +352,30 @@ h1 {
 }
 
 .friend-tile {
-    padding: 0.9rem;
-    text-align: center;
+    padding: 0.7rem;
+    text-align: left;
     background:
         linear-gradient(180deg, rgba(177, 247, 255, 0.5), rgba(255, 255, 255, 0.95));
 }
 
-.friend-icon {
-    display: inline-flex;
-    width: 3rem;
-    height: 3rem;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--border);
-    border-radius: 50%;
+.friend-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 3px solid var(--border);
+    border-radius: 12px;
     background: #fff;
-    font-size: 1.4rem;
+    box-shadow: 4px 4px 0 rgba(31, 22, 65, 0.22);
+}
+
+.friend-tile h3,
+.friend-tile p {
+    padding-inline: 0.15rem;
+}
+
+.friend-tile h3 {
+    margin-top: 0.7rem;
 }
 
 .timeline-list,
